@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "kitchen",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

@@ -1,0 +1,25 @@
+services:
+  orders:
+    build:
+      context: .
+      target: orders
+    container_name: oms-orders
+    ports:
+      - "8000:8000"
+      - "9000:9000"
+    volumes:
+      - ./orders:/app
+      - /app/temp
+
+  kitchen:
+    build:
+      context: .
+      target: kitchen
+    container_name: oms-kitchen
+    depends_on:
+      - orders
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./gateway:/app
+      - /app/temp
